@@ -1,25 +1,24 @@
+import java.util.Scanner;
 
 public class VideoStoreApp {
 
 	public static void main(String[] args) {
+		RentalStatement statement = new RentalStatement();
 
-		RentalCalculator calculator = new RentalCalculator();
-		Movie regular = new Movie("WCCI", "regular");
-		Movie childrens = new Movie("Up", "childrens");
-		Movie newRelease = new Movie("Dr Strnage", "new release");
-		
-		System.out.println("amount due = " + calculator.calculate(regular, 2));
-		System.out.println("amount due = " + calculator.calculate(regular, 3));
-		System.out.println("amount due = " + calculator.calculate(regular, 5));
-		
-		System.out.println("amount due = " + calculator.calculate(childrens, 3));
-		System.out.println("amount due = " + calculator.calculate(childrens, 4));
-		System.out.println("amount due = " + calculator.calculate(childrens, 5));
+		Movie regular = new RegularMovie("WCCI");
+		Movie childrens = new ChildrensMovie("Up");
+		Movie newRelease = new NewRelease("Dr Strnage");
 
-		System.out.println("amount due = " + calculator.calculate(newRelease, 1));
-		System.out.println("amount due = " + calculator.calculate(newRelease, 5));
+		Rental regularMovie = new Rental(regular, 3);
+		Rental newReleaseMovie = new Rental(newRelease, 2);
+		Rental childrensMovie = new Rental(childrens, 3);
 
-		
+		statement.add(childrensMovie);
+		statement.add(newReleaseMovie);
+		statement.add(regularMovie);
+		statement.print();
+
+		// System.out;
 	}
 
 }

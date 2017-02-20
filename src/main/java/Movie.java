@@ -1,5 +1,6 @@
+import java.math.BigDecimal;
 
-public class Movie {
+public abstract class Movie {
 
 	String title;
 	String priceCode;
@@ -11,9 +12,8 @@ public class Movie {
 
 	public String getTitle() {
 		return title;
+	
 	}
-
-	public String getPriceCode() {
-		return priceCode;
-	}
+	public abstract String getPriceCode();
+	public abstract BigDecimal calculateFees(int days);
 }
